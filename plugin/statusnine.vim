@@ -14,6 +14,11 @@ vim9script
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+if v:version < 802
+    echoerr "This plugin requires Vim9"
+    finish
+endif
+
 import autoload 'statusnine.vim'
 
 augroup statusnine

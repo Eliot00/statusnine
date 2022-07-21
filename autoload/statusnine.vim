@@ -14,24 +14,32 @@ vim9script
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+import autoload 'statusnine/colorscheme.vim' as colorscheme
+
 export def Statusline(): string
-    return CurrentMode() .. FileName() .. '%m %=' .. FileInfo() .. CusorInfo()
+    colorscheme.ColorSchemeInit()
+    return CurrentMode()
+        .. FileName()
+        .. '%#Gutter#%=%#GutterRight#'
+        .. FileInfo()
+        .. ''
+        .. CursorInfo()
 enddef
 
 def CurrentMode(): string
-    return '%#PmenuSel# ' .. modeMap->get(mode(true), 'NORMAL') .. ' '
+    return '%#HomeMode# ' .. modeMap->get(mode(true), 'NORMAL') .. ' %#HomeModeRight#'
 enddef
 
 def FileName(): string
-    return '%#LineNr# %f'
+    return ' %f %#FileNameRight# '
 enddef
 
 def FileInfo(): string
-    return '%#CusorColumn# %y %{&fileencoding?&fileencoding:&encoding} [%{&fileformat}]'
+    return '%#FileInfo# %{&fileencoding?&fileencoding:&encoding} | %{&fileformat}%#FileInfoRight#'
 enddef
 
-def CusorInfo(): string
-    return ' %p%% %l:%c '
+def CursorInfo(): string
+    return ' %#CursorInfo#%p%% | %l:%c '
 enddef
 
 const modeMap: dict<string> = {

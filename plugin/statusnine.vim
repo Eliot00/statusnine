@@ -20,10 +20,12 @@ if v:version < 802
 endif
 
 import autoload 'statusnine.vim'
+import autoload 'statusnine/colorscheme.vim' as colorscheme
 
 augroup statusnine
     autocmd!
     autocmd WinEnter,BufEnter,SessionLoadPost,FileChangedShellPost * call Init()
+    autocmd Colorscheme * call colorscheme.ColorSchemeInit()
 augroup END
 
 def Init()

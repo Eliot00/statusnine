@@ -27,7 +27,7 @@ export def Statusline(): string
 enddef
 
 def CurrentMode(): string
-    return '%#HomeMode# ' .. modeMap->get(mode(true), 'NORMAL') .. ' %#HomeModeRight#'
+    return '%#HomeMode# ' .. modeIconMap->get(mode(), 'Unknown') .. '%#HomeModeRight#'
 enddef
 
 def FileName(): string
@@ -41,6 +41,19 @@ enddef
 def CursorInfo(): string
     return ' %#CursorInfo#%p%% | %l:%c '
 enddef
+
+const modeIconMap: dict<string> = {
+    n: "🅝 ",
+    v: "🅥 ",
+    V: "🅥 ",
+    ["\<C-V>"]: "🅥 ",
+    i: "🅘 ",
+    R: "🅡 ",
+    s: "🅢 ",
+    t: "🅣 ",
+    c: "🅒 ",
+    ["!"]: "SE",
+}
 
 const modeMap: dict<string> = {
     n:          'NORMAL',

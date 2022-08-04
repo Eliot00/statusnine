@@ -1,12 +1,13 @@
 vim9script
 
 export def ColorSchemeInit()
-    hi HomeMode ctermfg=6 ctermbg=214
-    hi HomeModeRight ctermfg=214 ctermbg=261
-    hi FileNameRight ctermfg=73 ctermbg=261
-    hi Gutter ctermbg=73
-    hi GutterRight ctermfg=73 ctermbg=237
-    hi FileInfo ctermfg=214 ctermbg=237
-    hi FileInfoRight ctermfg=214 ctermbg=237
-    hi CursorInfo ctermfg=237 ctermbg=214
+    hi NineMode guifg=#dfdfe0 guibg=#81b29a
+    hi NineModeRight guifg=#81b29a guibg=#d8d8d8
+    hi NineFileName guifg=#183d5b guibg=#d8d8d8
+    hi NineFileNameRight guifg=#d8d8d8 guibg=#e0e0e0
+    hi NineGutter guibg=#e0e0e0
+    hi NineGutterRight guifg=#183d5b guibg=#e0e0e0
+    hi NineFileInfo guifg=#dfdfe0 guibg=#183d5b
+    hi NineFileInfoRight guifg=#6bb3c6 guibg=#183d5b
+    hi NineCursorInfo guifg=#e0e0e0 guibg=#6bb3c6
 enddef

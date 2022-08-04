@@ -20,26 +20,26 @@ export def Statusline(): string
     colorscheme.ColorSchemeInit()
     return CurrentMode()
         .. FileName()
-        .. '%#Gutter#%=%#GutterRight#'
+        .. '%#NineGutter#%=%#NineGutterRight#'
         .. FileInfo()
         .. ''
         .. CursorInfo()
 enddef
 
 def CurrentMode(): string
-    return '%#HomeMode# ' .. modeIconMap->get(mode(), 'Unknown') .. '%#HomeModeRight#'
+    return '%#NineMode# ' .. modeIconMap->get(mode(), 'Unknown') .. '%#NineModeRight#'
 enddef
 
 def FileName(): string
-    return ' %f %#FileNameRight# '
+    return '%#NineFileName# %f %#NineFileNameRight#'
 enddef
 
 def FileInfo(): string
-    return '%#FileInfo# %{&fileencoding?&fileencoding:&encoding} | %{&fileformat}%#FileInfoRight#'
+    return '%#NineFileInfo# %{&fileencoding?&fileencoding:&encoding} | %{&fileformat}%#NineFileInfoRight#'
 enddef
 
 def CursorInfo(): string
-    return ' %#CursorInfo#%p%% | %l:%c '
+    return '%#NineCursorInfo# %p%% | %l:%c '
 enddef
 
 const modeIconMap: dict<string> = {

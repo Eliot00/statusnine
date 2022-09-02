@@ -15,42 +15,13 @@ vim9script
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import autoload 'statusnine/colorscheme.vim' as colorscheme
+import autoload 'statusnine/components.vim' as components
 
 export def Statusline(): string
     colorscheme.ColorSchemeInit()
-    return CurrentMode()
-        .. FileName()
-        .. '%#NineGutter#%=%#NineGutterRight#'
-        .. FileInfo()
-        .. ''
-        .. CursorInfo()
+    return components.CurrentMode()
+        .. components.FileName()
+        .. components.Gutter()
+        .. components.FileInfo()
+        .. components.CursorInfo()
 enddef
-
-def CurrentMode(): string
-    return '%#NineMode# ' .. modeIconMap->get(mode(), 'Unknown') .. '%#NineModeRight#'
-enddef
-
-def FileName(): string
-    return '%#NineFileName# %f %#NineFileNameRight#'
-enddef
-
-def FileInfo(): string
-    return '%#NineFileInfo# %{&fileencoding?&fileencoding:&encoding} | %{&fileformat}%#NineFileInfoRight#'
-enddef
-
-def CursorInfo(): string
-    return '%#NineCursorInfo# %p%% | %l:%c '
-enddef
-
-const modeIconMap: dict<string> = {
-    n: "🅝 ",
-    v: "🅥 ",
-    V: "🅥 ",
-    ["\<C-V>"]: "🅥 ",
-    i: "🅘 ",
-    R: "🅡 ",
-    s: "🅢 ",
-    t: "🅣 ",
-    c: "🅒 ",
-    ["!"]: "SE",
-}

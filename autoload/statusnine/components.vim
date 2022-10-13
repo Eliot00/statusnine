@@ -26,7 +26,7 @@ export def FileName(): string
     endif
     return '%#NineFileName# '
         .. IsFileReadonly()
-        .. expand('%:t')
+        .. fnamemodify(expand("%"), ":~:.")
         .. IsFileModified()
         .. ' %#NineFileNameRight#'
 enddef

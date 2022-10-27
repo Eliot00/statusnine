@@ -17,7 +17,7 @@ vim9script
 # Hope Vim9 supports class as soon as possible.
 
 export def CurrentMode(): string
-    return '%#NineMode# ' .. modeIconMap->get(mode(), 'Unknown') .. '%#NineModeRight#'
+    return '%#NineMode# ' .. modeIconMap->get(mode(), 'Unknown') .. ' '
 enddef
 
 export def FileName(): string
@@ -28,15 +28,15 @@ export def FileName(): string
         .. IsFileReadonly()
         .. fnamemodify(expand("%"), ":~:.")
         .. IsFileModified()
-        .. ' %#NineFileNameRight#'
+        .. ' '
 enddef
 
 export def Gutter(): string
-    return '%#NineGutter#%=%#NineGutterRight#'
+    return '%#NineGutter#%='
 enddef
 
 export def FileInfo(): string
-    return '%#NineFileInfo# %{&fileencoding?&fileencoding:&encoding} | %{&fileformat} %#NineFileInfoRight#'
+    return '%#NineFileInfo# %{&fileencoding?&fileencoding:&encoding} | %{&fileformat} '
 enddef
 
 export def CursorInfo(): string

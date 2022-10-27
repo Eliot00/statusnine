@@ -14,10 +14,10 @@ vim9script
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-if v:version < 802
-    echoerr "This plugin requires Vim9"
+if exists('g:LOADED_STATUSNINE') || v:version < 802
     finish
 endif
+g:LOADED_STATUSNINE = true
 
 import autoload 'statusnine.vim'
 import autoload 'statusnine/colorscheme.vim' as colorscheme

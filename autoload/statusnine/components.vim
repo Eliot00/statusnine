@@ -25,9 +25,7 @@ export def FileName(): string
         return ''
     endif
     return '%#NineFileName# '
-        .. IsFileReadonly()
         .. fnamemodify(expand("%"), ":~:.")
-        .. IsFileModified()
         .. ' '
 enddef
 
@@ -41,20 +39,6 @@ enddef
 
 export def CursorInfo(): string
     return '%#NineCursorInfo# %p%% | %l:%c '
-enddef
-
-def IsFileReadonly(): string
-    if &readonly
-        return ' '
-    endif
-    return ''
-enddef
-
-def IsFileModified(): string
-    if &modified
-        return ' '
-    endif
-    return ''
 enddef
 
 const modeIconMap: dict<string> = {

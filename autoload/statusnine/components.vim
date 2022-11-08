@@ -34,11 +34,15 @@ export def Gutter(): string
 enddef
 
 export def FileInfo(): string
-    return '%#NineFileInfo# %{&fileencoding?&fileencoding:&encoding} | %{&fileformat} '
+    return '%#NineFileInfo# %{&fileencoding?&fileencoding:&encoding} | %{&fileformat} | %{&filetype} '
+enddef
+
+export def Progress(): string
+    return '%#NineProgress# %p%% '
 enddef
 
 export def CursorInfo(): string
-    return '%#NineCursorInfo# %p%% | %l:%c '
+    return '%#NineCursorInfo# %l:%c '
 enddef
 
 const modeIconMap: dict<string> = {

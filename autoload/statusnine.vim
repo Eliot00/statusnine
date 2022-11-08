@@ -23,5 +23,6 @@ export def Statusline(): string
         .. components.FileName()
         .. components.Gutter()
         .. components.FileInfo()
+        .. components.Progress()
         .. components.CursorInfo()
 enddef
